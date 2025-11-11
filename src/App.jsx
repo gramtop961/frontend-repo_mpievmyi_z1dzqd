@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles, Trophy, GraduationCap, ShieldCheck, Star, Rocket, Target, Building2, Globe2, Cpu, Crown, CalendarDays, Gift, Camera, CheckCircle2, Compass, LayoutGrid, IndianRupee, TrendingUp, ChevronLeft, ChevronRight, Play, ExternalLink } from 'lucide-react'
-import ComparisonSection from './components/ComparisonSection.jsx'
 
 function Nav() {
   return (
@@ -602,8 +601,6 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <Nav />
       <Hero />
-      {/* Inserted comparison section right after the cover section */}
-      <ComparisonSection />
       <Mentors />
       <Tracks />
       <Outcomes />
