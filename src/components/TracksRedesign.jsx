@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Target, Compass, CheckCircle2, Rocket, ArrowRight, ShieldCheck } from 'lucide-react'
+import { Target, Compass, CheckCircle2, Rocket, ArrowRight, ShieldCheck, Trophy, Award, BadgeCheck, Medal } from 'lucide-react'
 
 export default function TracksRedesign() {
   const trackData = [
@@ -10,13 +10,32 @@ export default function TracksRedesign() {
     { key: 'hft', tag: 'Quant & Systems', title: 'HFT Quant Track', tone: 'from-amber-500 to-orange-600', kpis: ['2–4 LPA internship stipend','C++ low-latency projects','Offers 50+ LPA potential'], projects: ['Order book simulator','Tick data pipeline','Backtesting engine'] },
   ]
 
-  // Second set: renamed with two-line titles and year labels
+  // Second set: renamed with two-line titles and year labels + detailed content
   const flowTracks = [
-    { key: 't1', primary: 'Open Source', year: 'Year I', tone: 'from-emerald-500 to-teal-500', secondLineClass: 'font-serif italic', outcome: { title: 'Google Summer of Code', desc: '₹2,00,000+ internship stipend from Google; contributions to top OSS orgs' } },
-    { key: 't2', primary: 'Competitive Programming', year: 'Year II', tone: 'from-indigo-500 to-fuchsia-500', secondLineClass: 'font-mono italic', outcome: { title: 'ACM ICPC Regionals/World Finals', desc: 'Top-tier algorithmic skills valued by Google, Microsoft, etc.' } },
-    { key: 't3', primary: 'AI & ML', year: 'Year III', tone: 'from-sky-500 to-blue-600', secondLineClass: 'italic tracking-wide', outcome: { title: 'Meta AI HackerCup', desc: 'Aim for top world ranks. Ready for AI startups hiring AI Engineers.' } },
-    { key: 't4', primary: 'Quant Trading', year: 'Year IV', tone: 'from-amber-500 to-orange-600', secondLineClass: 'italic font-semibold', outcome: { title: 'Top-tier HFT Quant Roles', desc: 'Compensation potential 50+ LPA with strong systems + math skills.' } },
+    { key: 't1', primary: 'Open Source', year: 'Year I', tone: 'from-emerald-500 to-teal-500', secondLineClass: 'font-serif italic', outcome: { title: 'Google Summer of Code', desc: '₹2,00,000+ internship stipend from Google; contributions to top OSS orgs' },
+      kpis: ['3–5 meaningful PRs merged', 'Active participation in one OSS org', 'Mentor feedback cycle completed'],
+      projects: ['Issue triage bot', 'Docs + tooling improvements', 'Plugin for a CNCF project'], outcomeIcon: 'trophy' },
+    { key: 't2', primary: 'Competitive Programming', year: 'Year II', tone: 'from-indigo-500 to-fuchsia-500', secondLineClass: 'font-mono italic', outcome: { title: 'ACM ICPC Regionals/World Finals', desc: 'Top-tier algorithmic skills valued by Google, Microsoft, etc.' },
+      kpis: ['Codeforces 1700–1900 rating', 'Team practice 2x weekly', 'Mastery of DP/Graphs/Number Theory'],
+      projects: ['Contest notebook (CP handbook)', 'Problemset analyzer', 'Visualizer for flows/DSU'], outcomeIcon: 'award' },
+    { key: 't3', primary: 'AI & ML', year: 'Year III', tone: 'from-sky-500 to-blue-600', secondLineClass: 'italic tracking-wide', outcome: { title: 'Meta AI HackerCup', desc: 'Aim for top world ranks. Ready for AI startups hiring AI Engineers.' },
+      kpis: ['Train/evaluate 3 classic models', 'Implement vector search pipeline', 'Ship an inference API'],
+      projects: ['Reranker for search', 'Vector DB playground', 'LLM eval harness'], outcomeIcon: 'badge' },
+    { key: 't4', primary: 'Quant Trading', year: 'Year IV', tone: 'from-amber-500 to-orange-600', secondLineClass: 'italic font-semibold', outcome: { title: 'Top-tier HFT Quant Roles', desc: 'Compensation potential 50+ LPA with strong systems + math skills.' },
+      kpis: ['End-to-end backtest on a strategy', 'Latency profiling report', 'Risk-managed PnL simulation'],
+      projects: ['Order book simulator', 'Tick data pipeline', 'Backtesting engine'], outcomeIcon: 'medal' },
   ]
+
+  const OutcomeIcon = ({ type }) => {
+    const common = 'h-4.5 w-4.5';
+    switch (type) {
+      case 'trophy': return <Trophy className={common + ' text-amber-500'} />
+      case 'award': return <Award className={common + ' text-indigo-500'} />
+      case 'badge': return <BadgeCheck className={common + ' text-sky-500'} />
+      case 'medal': return <Medal className={common + ' text-orange-500'} />
+      default: return <Trophy className={common + ' text-gray-400'} />
+    }
+  }
 
   return (
     <section className="relative py-14 sm:py-16 lg:py-20">
@@ -87,21 +106,24 @@ export default function TracksRedesign() {
           {/* Hub with dotted branches to each card */}
           <div className="relative mt-8">
             <div className="mx-auto w-full max-w-5xl">
-              {/* Horizontal dotted line */}
-              <div className="hidden lg:block relative h-8">
-                <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t border-dashed border-gray-300" />
-                {/* Vertical connectors to each column */}
+              {/* Horizontal dotted line (thicker and more prominent) */}
+              <div className="hidden lg:block relative h-10">
+                <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t-2 border-dashed border-gray-400" />
+                {/* Center hub node */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-cyan-400 shadow ring-4 ring-cyan-100" />
+                {/* Vertical connectors to each column (thicker) */}
                 <div className="absolute grid grid-cols-4 gap-5 left-0 right-0 top-0 h-full px-2">
                   {[0,1,2,3].map((i) => (
                     <div key={i} className="relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 top-1/2 h-4 border-l border-dashed border-gray-300" />
+                      <div className="absolute left-1/2 -translate-x-1/2 top-1/2 h-6 border-l-2 border-dashed border-gray-400" />
+                      <div className="absolute left-1/2 -translate-x-1/2 top-[calc(50%+24px)] h-2 w-2 rounded-full bg-cyan-400/90 ring-2 ring-cyan-100" />
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Track cards */}
+            {/* Track cards with detailed content */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {flowTracks.map((t, idx) => (
                 <motion.div key={t.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.45, delay: idx * 0.04 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm hover:shadow-lg">
@@ -116,29 +138,53 @@ export default function TracksRedesign() {
                       <div className="h-px w-full bg-gray-200" />
                       <div className="mt-2 text-xs font-semibold text-gray-600 tracking-wide">{t.year}</div>
                     </div>
+
+                    {/* Detailed content like section 2 */}
+                    <div className="mt-4">
+                      <div className="text-xs font-semibold text-gray-600 tracking-wide">Year outcome / goals</div>
+                      <ul className="mt-2 space-y-1.5">
+                        {t.kpis.map((k) => (
+                          <li key={k} className="flex items-start gap-2 text-sm text-gray-800"><CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" /> {k}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mt-4">
+                      <div className="text-xs font-semibold text-gray-600 tracking-wide">Sample projects</div>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {t.projects.map((p) => (
+                          <span key={p} className="inline-flex items-center gap-1 rounded-full bg-gray-50 text-gray-800 px-2.5 py-1 text-xs border border-black/10"><Rocket className="h-3.5 w-3.5 text-violet-600" /> {p}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   {/* Bottom anchor for dotted line connector */}
-                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-4 h-4 w-px border-l border-dashed border-gray-300 hidden lg:block" />
+                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 h-6 w-px border-l-2 border-dashed border-gray-400 hidden lg:block" />
+                  <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -bottom-5 h-2 w-2 rounded-full bg-cyan-400 ring-2 ring-cyan-100" />
                 </motion.div>
               ))}
             </div>
 
-            {/* Dotted verticals from each card to outcome cards */}
+            {/* Dotted verticals from each card to outcome cards (thicker + nodes) */}
             <div className="hidden lg:grid grid-cols-4 gap-5 mt-2">
               {[0,1,2,3].map((i) => (
                 <div key={i} className="relative">
-                  <div className="mx-auto h-8 w-px border-l border-dashed border-gray-300" />
+                  <div className="mx-auto h-10 w-px border-l-2 border-dashed border-gray-400" />
+                  <div className="mx-auto -mt-1 h-2 w-2 rounded-full bg-cyan-400 ring-2 ring-cyan-100" />
                 </div>
               ))}
             </div>
 
-            {/* Outcome cards */}
+            {/* Outcome cards with neutral titles + icons/badges */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
               {flowTracks.map((t, idx) => (
                 <motion.div key={`${t.key}-out`} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.45, delay: idx * 0.05 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
-                  <div className={`absolute inset-x-0 -top-8 h-20 bg-gradient-to-r ${t.tone} opacity-10`} />
+                  {/* Remove strong gradient header; keep a subtle tint */}
+                  <div className="absolute inset-x-0 -top-8 h-20 bg-gradient-to-r from-gray-100 to-gray-50 opacity-80" />
                   <div className="p-5 sm:p-6">
-                    <div className="text-[11px] font-semibold text-gray-600 tracking-wide mb-1">Outcome</div>
+                    <div className="flex items-center gap-2 text-[11px] font-semibold text-gray-600 tracking-wide mb-1">
+                      <OutcomeIcon type={t.outcomeIcon} />
+                      <span>Outcome</span>
+                    </div>
                     <h5 className="text-base sm:text-lg font-bold text-gray-900">{t.outcome.title}</h5>
                     <p className="mt-1.5 text-sm text-gray-700">{t.outcome.desc}</p>
                   </div>
