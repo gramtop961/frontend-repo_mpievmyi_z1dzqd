@@ -671,35 +671,106 @@ function Experience() {
 }
 
 function Seat() {
+  // Countdown to 15th December
+  const [timeLeft, setTimeLeft] = React.useState(() => {
+    const now = new Date()
+    const year = now.getMonth() > 11 || (now.getMonth() === 11 && now.getDate() > 15) ? now.getFullYear() + 1 : now.getFullYear()
+    const target = new Date(year, 11, 15, 0, 0, 0) // Dec is month 11
+    return target.getTime() - now.getTime()
+  })
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date()
+      const year = now.getMonth() > 11 || (now.getMonth() === 11 && now.getDate() > 15) ? now.getFullYear() + 1 : now.getFullYear()
+      const target = new Date(year, 11, 15, 0, 0, 0)
+      setTimeLeft(target.getTime() - now.getTime())
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const days = Math.max(0, Math.floor(timeLeft / (1000 * 60 * 60 * 24)))
+  const hours = Math.max(0, Math.floor((timeLeft / (1000 * 60 * 60)) % 24))
+  const minutes = Math.max(0, Math.floor((timeLeft / (1000 * 60)) % 60))
+  const seconds = Math.max(0, Math.floor((timeLeft / 1000) % 60))
+
+  const prizes = [
+    { title: 'Singapore Trip', sub: 'Top performers', img: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=600&auto=format&fit=crop' },
+    { title: 'MacBook Air', sub: 'Performance prize', img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=600&auto=format&fit=crop' },
+    { title: 'iPad', sub: 'Category topper', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop' },
+    { title: 'Exclusive Merch', sub: 'T‑shirts & more', img: 'https://images.unsplash.com/photo-1520975922131-c91e8f9a7d0e?q=80&w=600&auto=format&fit=crop' },
+    { title: 'Scholarships', sub: 'Up to 100%', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop' },
+  ]
+
   return (
-    <Section id="seat" emoji="🔥" title="SEAT: Software Engineer Aptitude Test" subtitle="December intake • Prizes worth ₹26 Lakh • Scholarships up to 100%">
-      <div className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <div className="grid sm:grid-cols-2 gap-4 text-gray-800">
-            <div className="flex items-start gap-3"><Gift className="h-5 w-5 text-rose-600" /> Singapore Trip for top performers</div>
-            <div className="flex items-start gap-3"><Gift className="h-5 w-5 text-violet-600" /> MacBook Air, iPad, exclusive T‑shirts</div>
-            <div className="flex items-start gap-3"><ShieldCheck className="h-5 w-5 text-emerald-600" /> Up to 100% scholarships</div>
-            <div className="flex items-start gap-3"><CalendarDays className="h-5 w-5 text-blue-600" /> Test window in December</div>
+    <section id="seat" className="relative py-20 sm:py-24 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800" />
+        <div className="absolute -top-32 -right-20 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-fuchsia-600/20 blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1 text-xs text-white/80 shadow-sm mb-4">
+            <Sparkles className="h-3.5 w-3.5 text-fuchsia-400" /> SEAT: Software Engineer Aptitude Test
           </div>
-          <div className="mt-6 text-gray-700 text-sm leading-relaxed">Crack SEAT to unlock admission into ASCA. High scorers receive merit scholarships and early access to mentors and projects.</div>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="#register" className="inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 text-white px-6 py-3 font-semibold shadow-lg hover:shadow-xl"><Trophy className="h-5 w-5" /> Register for SEAT</a>
-            <a href="#faq" className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-gray-900 px-6 py-3 font-semibold border border-black/10 hover:bg-gray-50"><Target className="h-5 w-5 text-violet-600" /> View Syllabus Snapshot</a>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">Crack SEAT. Claim your spot.</h2>
+          <p className="mt-3 text-lg text-white/80">December intake • Prizes worth ₹26 Lakh • Scholarships up to 100%</p>
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 text-white px-4 py-2 text-sm border border-white/10">
+            <CalendarDays className="h-4 w-4 text-amber-300" /> Test date: 15th December
           </div>
         </div>
-        <div className="rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 p-6 text-white shadow-xl">
-          <h3 className="font-semibold text-white mb-2">What You’ll Prove</h3>
-          <ul className="space-y-3 text-violet-50/90">
-            <li className="flex gap-3"><Cpu className="h-5 w-5" /> Problem solving & DSA</li>
-            <li className="flex gap-3"><Rocket className="h-5 w-5" /> Systems and scalability sense</li>
-            <li className="flex gap-3"><Star className="h-5 w-5" /> Engineering craft and pace</li>
-          </ul>
-          <div className="mt-6 p-4 rounded-xl bg-white/10 border border-white/20">
-            <p className="text-sm">Top performers get direct fast‑tracks to internships with Talent Club companies.</p>
+
+        {/* Countdown + CTA */}
+        <div className="mt-8 grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8">
+            <div className="absolute inset-x-0 -top-10 h-24 bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 opacity-20" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <div className="text-sm uppercase tracking-wider text-white/70">Countdown to SEAT</div>
+                <div className="mt-2 flex items-center gap-3">
+                  {[{label:'Days', value: days}, {label:'Hours', value: hours}, {label:'Minutes', value: minutes}, {label:'Seconds', value: seconds}].map((b) => (
+                    <div key={b.label} className="w-22 min-w-[72px] rounded-xl bg-black/30 border border-white/10 px-3 py-2 text-center">
+                      <div className="text-2xl font-extrabold text-white tabular-nums">{String(b.value).padStart(2,'0')}</div>
+                      <div className="text-[10px] uppercase tracking-wide text-white/60">{b.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="#register" className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-gray-900 px-6 py-3 font-semibold shadow-lg hover:shadow-xl">
+                  <Trophy className="h-5 w-5" /> Register for SEAT
+                </a>
+                <a href="#faq" className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 text-white px-6 py-3 font-semibold border border-white/10 hover:bg-white/15">
+                  <Target className="h-5 w-5 text-fuchsia-300" /> View Syllabus Snapshot
+                </a>
+              </div>
+            </div>
+            <div className="mt-4 text-sm text-white/70">Punchline: Score high. Skip the line. Top ranks get fast‑tracked into mentorship and internships.</div>
+          </div>
+
+          {/* Prize panel */}
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8">
+            <div className="text-sm uppercase tracking-wider text-white/70 mb-3">Prizes & Scholarships</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {prizes.map((p) => (
+                <div key={p.title} className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition shadow-sm">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={p.img} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
+                  </div>
+                  <div className="p-3">
+                    <div className="text-sm font-semibold text-white leading-tight">{p.title}</div>
+                    <div className="text-xs text-white/70 leading-tight">{p.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 rounded-xl bg-black/30 border border-white/10 p-3 text-xs text-white/70">Actual items and eligibility will be announced with the official SEAT brief. Scholarships are merit‑based.</div>
           </div>
         </div>
       </div>
-    </Section>
+    </section>
   )
 }
 
