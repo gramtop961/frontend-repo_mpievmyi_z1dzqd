@@ -15,12 +15,13 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <Nav />
       <Hero />
+      {/* Move Experience directly below the cover section */}
+      <Experience />
       <Mentors />
       {/* Removed legacy Tracks section */}
       <TracksRedesign />
       <Outcomes />
       <TalentClubCard />
-      <Experience />
       <Seat />
       <FinalCTA />
       <Footer />
