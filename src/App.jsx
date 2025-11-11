@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Trophy, GraduationCap, ShieldCheck, Star, Rocket, Target, Building2, Globe2, Cpu, Crown, CalendarDays, Gift, Camera, CheckCircle2, Compass, LayoutGrid, IndianRupee, TrendingUp, ChevronLeft, ChevronRight, Play, ExternalLink } from 'lucide-react'
+import { ArrowRight, Sparkles, Trophy, GraduationCap, ShieldCheck, Star, Rocket, Target, Building2, Globe2, Cpu, Crown, CalendarDays, Gift, Camera, CheckCircle2, Compass, LayoutGrid, IndianRupee, TrendingUp, ChevronLeft, ChevronRight, Play, ExternalLink, Briefcase, Clock } from 'lucide-react'
 
 function Nav() {
   return (
@@ -251,9 +251,8 @@ function Outcomes() {
     { id: 't6', name: 'Yash • GSoC @ CNCF', role: 'Open Source', avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80', quote: 'Got my first major PR merged and learned how to collaborate asynchronously.' },
   ]
 
-  // Extend to ensure at least 6 rows when expanded
   const textTestimonials = React.useMemo(() => {
-    const copies = 3 // 6 base -> 18 total
+    const copies = 3
     const out = []
     for (let i = 0; i < copies; i++) {
       baseTestimonials.forEach((t, idx) => {
@@ -263,10 +262,8 @@ function Outcomes() {
     return out
   }, [])
 
-  // Bento layout pattern: each row sums to 12 to ensure full width
   const spanPattern = [7, 5, 5, 7, 8, 4, 4, 8, 6, 6]
 
-  // Map span to literal Tailwind classes so JIT picks them up
   const spanClass = (n) => {
     switch (n) {
       case 4: return 'md:col-span-4';
@@ -282,7 +279,6 @@ function Outcomes() {
     }
   }
 
-  // Determine how many items make exactly 3 rows
   const visibleCountForRows = React.useMemo(() => {
     let rows = 1
     let width = 0
@@ -343,12 +339,10 @@ function Outcomes() {
           ))}
         </div>
 
-        {/* Bento box testimonials with 6 rows when expanded; fade after 3 rows */}
         <div className="mt-12">
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">What our students say</h3>
 
           <div className="relative">
-            {/* Grid */}
             <div className="w-full grid grid-cols-12 gap-4">
               {itemsToRender.map((t, idx) => {
                 const span = spanPattern[idx % spanPattern.length]
@@ -377,13 +371,11 @@ function Outcomes() {
               })}
             </div>
 
-            {/* Fade overlay after 3 rows when not expanded */}
             {!expanded && (
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent opacity-95 transition-opacity duration-700" />
             )}
           </div>
 
-          {/* Show more / less */}
           <div className="mt-6 flex justify-center">
             <button
               type="button"
@@ -450,7 +442,6 @@ function TalentClubCard() {
           </div>
 
           <div className="grid lg:grid-cols-2">
-            {/* Left content */}
             <div className="p-6 sm:p-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 backdrop-blur px-3 py-1 text-xs text-gray-700 shadow-sm mb-4">
                 <Crown className="h-3.5 w-3.5 text-violet-600" /> Introducing
@@ -490,7 +481,6 @@ function TalentClubCard() {
               </div>
             </div>
 
-            {/* Right marquee */}
             <div className="p-6 sm:p-10 border-t lg:border-t-0 lg:border-l border-black/5 bg-gray-50/60">
               <div className="space-y-4">
                 <Row reverse={false} speed={28} />
@@ -511,22 +501,154 @@ function TalentClubCard() {
 
 function Experience() {
   return (
-    <Section id="experience" emoji="🚀" title="Graduate with 1.5 Years of Industry Experience" subtitle="Co-ops, capstones, and real product launches give you an unfair edge.">
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <h3 className="font-semibold text-gray-900 mb-2">Build • Ship • Iterate</h3>
-          <p className="text-gray-700">Every term culminates in shipped features, open-source contributions, or published research.</p>
+    <section id="experience" className="relative py-20 sm:py-24 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-indigo-50 via-violet-50 to-transparent" />
+        <div className="pointer-events-none absolute -top-20 -right-32 h-72 w-72 rounded-full bg-violet-300/30 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-fuchsia-300/30 blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 backdrop-blur px-3 py-1 text-xs text-gray-700 shadow-sm mb-4">
+            <Rocket className="h-3.5 w-3.5 text-violet-600" /> Industry-first learning
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
+            Graduate your B.Tech. as <span className="relative inline-flex items-center">
+              <span className="text-gray-500/80 line-through decoration-rose-500 decoration-4">Fresher</span>
+              <span className="mx-2">→</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500">1.5 years of experience</span>
+            </span>
+          </h2>
+          <p className="mt-3 text-lg text-gray-700">A structured journey that stacks real internships and a full-time residency so you don’t start from zero.</p>
         </div>
-        <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <h3 className="font-semibold text-gray-900 mb-2">Mentored by Builders</h3>
-          <p className="text-gray-700">Weekly code reviews from FAANG mentors. Learn systems thinking and product taste.</p>
-        </div>
-        <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <h3 className="font-semibold text-gray-900 mb-2">Portfolio that Converts</h3>
-          <p className="text-gray-700">Standout projects mapped to roles: backend, AI engineer, quant, or founding engineer.</p>
+
+        <div className="mt-10 grid lg:grid-cols-2 gap-6">
+          {/* Left: timeline and highlights */}
+          <div className="space-y-6">
+            {/* Highlight strip */}
+            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-6 shadow-md">
+              <div className="absolute inset-x-0 -top-10 h-24 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-orange-500 opacity-10" />
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 rounded-full bg-gray-900 text-white px-4 py-2 text-sm font-semibold shadow">
+                  <Clock className="h-4 w-4" /> Total: 18 months
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-violet-50 text-violet-700 px-3 py-1 text-xs border border-violet-100">
+                  <ShieldCheck className="h-3.5 w-3.5" /> Paid, mentored work
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 px-3 py-1 text-xs border border-amber-100">
+                  <GraduationCap className="h-3.5 w-3.5" /> Mapped to curriculum
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-gray-600">We line up opportunities and coach you through interviews, reviews, and real delivery.</p>
+            </div>
+
+            {/* Timeline */}
+            <div className="grid gap-4">
+              {/* Year 1 */}
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500" />
+                <div className="pl-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-violet-600" /> After Year 1</div>
+                  <div className="mt-1 text-lg font-bold">3‑month internship</div>
+                  <p className="mt-1 text-sm text-gray-700">Your first on‑site or remote break into industry. Ship features with a mentor on your side.</p>
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-violet-50 text-violet-700 text-xs px-3 py-1 border border-violet-100">
+                    <Briefcase className="h-3.5 w-3.5" /> Product / Backend / Frontend
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Year 2 */}
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.05 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-fuchsia-500 to-orange-500" />
+                <div className="pl-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-fuchsia-600" /> After Year 2</div>
+                  <div className="mt-1 text-lg font-bold">Another 3‑month internship</div>
+                  <p className="mt-1 text-sm text-gray-700">Level up responsibility: own modules, write design docs, and present demos to stakeholders.</p>
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-fuchsia-50 text-fuchsia-700 text-xs px-3 py-1 border border-fuchsia-100">
+                    <ShieldCheck className="h-3.5 w-3.5" /> Strong letters & portfolio
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Final Year */}
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.1 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-orange-500 to-rose-500" />
+                <div className="pl-4">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-orange-600" /> Final Year</div>
+                  <div className="mt-1 text-lg font-bold">Full‑time industry work experience (9–12 months)</div>
+                  <p className="mt-1 text-sm text-gray-700">Join a partner team as an embedded engineer. Real sprints, real on‑call, real impact.</p>
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 text-xs px-3 py-1 border border-amber-100">
+                    <Building2 className="h-3.5 w-3.5" /> Residency with stipend
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Right: mock offer / dashboard card */}
+          <div>
+            <div className="relative h-full">
+              <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-black/10 bg-gray-900 text-white p-6 sm:p-8 shadow-2xl">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 20%, #7c3aed 0, transparent 40%), radial-gradient(circle at 80% 0%, #db2777 0, transparent 40%), radial-gradient(circle at 80% 80%, #f59e0b 0, transparent 40%)' }} />
+                <div className="relative">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3 py-1 text-xs">
+                    <Sparkles className="h-3.5 w-3.5" /> Mockup
+                  </div>
+                  <h3 className="mt-3 text-2xl font-extrabold tracking-tight">Internship Offer</h3>
+                  <p className="mt-1 text-sm text-white/80">Congratulations! You are selected for a 3‑month Software Engineering Internship.</p>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="rounded-xl bg-white/10 border border-white/10 p-3">
+                      <div className="text-xs text-white/70">Role</div>
+                      <div className="text-sm font-semibold">Backend Engineer</div>
+                    </div>
+                    <div className="rounded-xl bg-white/10 border border-white/10 p-3">
+                      <div className="text-xs text-white/70">Duration</div>
+                      <div className="text-sm font-semibold">3 months</div>
+                    </div>
+                    <div className="rounded-xl bg-white/10 border border-white/10 p-3">
+                      <div className="text-xs text-white/70">Mentor</div>
+                      <div className="text-sm font-semibold">Senior SWE @ Partner Co.</div>
+                    </div>
+                    <div className="rounded-xl bg-white/10 border border-white/10 p-3">
+                      <div className="text-xs text-white/70">Stipend</div>
+                      <div className="text-sm font-semibold">₹60,000 / mo</div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500 text-white px-4 py-2 text-sm font-semibold shadow">
+                      <ShieldCheck className="h-4 w-4" /> Accepted
+                    </div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-white text-gray-900 px-4 py-2 text-sm font-semibold">
+                      <Briefcase className="h-4 w-4" /> Start onboarding
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.1 }} className="absolute -bottom-6 -right-4 w-48 sm:w-56 rotate-6 overflow-hidden rounded-2xl border border-black/10 bg-white p-4 shadow-xl">
+                <div className="text-xs text-gray-600">Residency Tracker</div>
+                <div className="mt-2">
+                  <div className="flex items-center justify-between text-sm font-semibold text-gray-900">
+                    <span>Sprint 5</span>
+                    <span>82%</span>
+                  </div>
+                  <div className="mt-2 h-2.5 rounded-full bg-gray-100">
+                    <div className="h-2.5 rounded-full bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500" style={{ width: '82%' }} />
+                  </div>
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-xs text-gray-700">
+                  <Building2 className="h-3.5 w-3.5 text-violet-600" /> Partner: StealthAI Labs
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   )
 }
 
