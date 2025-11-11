@@ -201,7 +201,7 @@ function Tracks() {
             <motion.div key={t.key} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: idx * 0.05 }} className="relative overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm hover:shadow-lg transition-shadow">
               <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500" />
               <div className="grid md:grid-cols-[120px,1fr,220px] gap-0">
-                <div className="relative h-28 md:h-full">
+                <div className="relative h-28 md:h/full">
                   <img src={t.image} alt={t.alt} className="h-full w-full object-contain bg-gray-50 p-4" />
                 </div>
                 <div className="p-5 sm:p-6">
@@ -561,7 +561,7 @@ function Experience() {
             <div className="grid gap-4">
               {/* Step 1 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500" />
+                <div className="absolute left-0 top-0 h/full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500" />
                 <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-violet-600">01</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-violet-600" /> After Year 1</div>
@@ -575,7 +575,7 @@ function Experience() {
 
               {/* Step 2 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.05 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-fuchsia-500 to-orange-500" />
+                <div className="absolute left-0 top-0 h/full w-1 bg-gradient-to-b from-fuchsia-500 to-orange-500" />
                 <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-fuchsia-600">02</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-fuchsia-600" /> After Year 2</div>
@@ -589,7 +589,7 @@ function Experience() {
 
               {/* Step 3 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.1 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
-                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-orange-500 to-rose-500" />
+                <div className="absolute left-0 top-0 h/full w-1 bg-gradient-to-b from-orange-500 to-rose-500" />
                 <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-orange-600">03</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-orange-600" /> Final Year</div>
@@ -711,63 +711,93 @@ function Seat() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1 text-xs text-white/80 shadow-sm mb-4">
-            <Sparkles className="h-3.5 w-3.5 text-fuchsia-400" /> SEAT: Software Engineer Aptitude Test
+        {/* Header */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1 text-xs text-white/80 shadow-sm mb-4">
+              <Sparkles className="h-3.5 w-3.5 text-fuchsia-300" /> Admissions Test
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+              Software Engineering Aptitude Test (SEAT)
+            </h2>
+            <p className="mt-3 text-white/80 text-lg">
+              A selective assessment for entry into ASCA. Show your problem‑solving, coding fundamentals, and engineering mindset.
+            </p>
+
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white text-gray-900 px-4 py-2 text-sm font-semibold shadow">
+                <CalendarDays className="h-4 w-4" /> 15 December
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 text-white px-3 py-1 text-xs border border-white/10">
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-300" /> Free to register
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 text-white px-3 py-1 text-xs border border-white/10">
+                <Clock className="h-3.5 w-3.5 text-amber-300" /> 90 minutes • Online
+              </div>
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-3 gap-3">
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div className="text-xs text-white/60">Who should apply</div>
+                <div className="mt-1 text-white font-semibold">B.Tech / BSc CS & AI aspirants (2025–2026)</div>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div className="text-xs text-white/60">What’s tested</div>
+                <div className="mt-1 text-white font-semibold">DSA, logic, debugging, systems sense</div>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div className="text-xs text-white/60">Why take SEAT</div>
+                <div className="mt-1 text-white font-semibold">Scholarships, mentorship fast‑track, prizes</div>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="#register" className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-gray-900 px-6 py-3 font-semibold shadow-lg hover:shadow-xl">
+                <Trophy className="h-5 w-5" /> Register for SEAT
+              </a>
+              <a href="#faq" className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 text-white px-6 py-3 font-semibold border border-white/10 hover:bg-white/15">
+                <Target className="h-5 w-5 text-fuchsia-300" /> View sample paper
+              </a>
+            </div>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">Crack SEAT. Claim your spot.</h2>
-          <p className="mt-3 text-lg text-white/80">December intake • Prizes worth ₹26 Lakh • Scholarships up to 100%</p>
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 text-white px-4 py-2 text-sm border border-white/10">
-            <CalendarDays className="h-4 w-4 text-amber-300" /> Test date: 15th December
+
+          {/* Countdown Card */}
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8">
+              <div className="absolute inset-x-0 -top-10 h-24 bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 opacity-20" />
+              <div className="text-sm uppercase tracking-wider text-white/70">Countdown to 15 December</div>
+              <div className="mt-3 grid grid-cols-4 gap-3">
+                {[{label:'Days', value: days}, {label:'Hours', value: hours}, {label:'Minutes', value: minutes}, {label:'Seconds', value: seconds}].map((b) => (
+                  <div key={b.label} className="rounded-xl bg-black/30 border border-white/10 px-3 py-3 text-center">
+                    <div className="text-2xl font-extrabold text-white tabular-nums">{String(b.value).padStart(2,'0')}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-white/60">{b.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 text-sm text-white/70">Secure your seat before the deadline. Scores unlock scholarships and fast‑track opportunities.</div>
+            </div>
           </div>
         </div>
 
-        {/* Countdown + CTA */}
-        <div className="mt-8 grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8">
-            <div className="absolute inset-x-0 -top-10 h-24 bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 opacity-20" />
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div>
-                <div className="text-sm uppercase tracking-wider text-white/70">Countdown to SEAT</div>
-                <div className="mt-2 flex items-center gap-3">
-                  {[{label:'Days', value: days}, {label:'Hours', value: hours}, {label:'Minutes', value: minutes}, {label:'Seconds', value: seconds}].map((b) => (
-                    <div key={b.label} className="w-22 min-w-[72px] rounded-xl bg-black/30 border border-white/10 px-3 py-2 text-center">
-                      <div className="text-2xl font-extrabold text-white tabular-nums">{String(b.value).padStart(2,'0')}</div>
-                      <div className="text-[10px] uppercase tracking-wide text-white/60">{b.label}</div>
-                    </div>
-                  ))}
+        {/* Prizes & Scholarships */}
+        <div className="mt-10">
+          <div className="flex items-center gap-2 text-xs font-medium text-white/80">
+            <Gift className="h-3.5 w-3.5 text-amber-300" /> Prizes & Scholarships
+          </div>
+          <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {prizes.map((p) => (
+              <div key={p.title} className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition shadow-sm">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={p.img} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
+                </div>
+                <div className="p-3">
+                  <div className="text-sm font-semibold text-white leading-tight">{p.title}</div>
+                  <div className="text-xs text-white/70 leading-tight">{p.sub}</div>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a href="#register" className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-gray-900 px-6 py-3 font-semibold shadow-lg hover:shadow-xl">
-                  <Trophy className="h-5 w-5" /> Register for SEAT
-                </a>
-                <a href="#faq" className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 text-white px-6 py-3 font-semibold border border-white/10 hover:bg-white/15">
-                  <Target className="h-5 w-5 text-fuchsia-300" /> View Syllabus Snapshot
-                </a>
-              </div>
-            </div>
-            <div className="mt-4 text-sm text-white/70">Punchline: Score high. Skip the line. Top ranks get fast‑tracked into mentorship and internships.</div>
+            ))}
           </div>
-
-          {/* Prize panel */}
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur p-6 sm:p-8">
-            <div className="text-sm uppercase tracking-wider text-white/70 mb-3">Prizes & Scholarships</div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {prizes.map((p) => (
-                <div key={p.title} className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition shadow-sm">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={p.img} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition duration-500" />
-                  </div>
-                  <div className="p-3">
-                    <div className="text-sm font-semibold text-white leading-tight">{p.title}</div>
-                    <div className="text-xs text-white/70 leading-tight">{p.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 rounded-xl bg-black/30 border border-white/10 p-3 text-xs text-white/70">Actual items and eligibility will be announced with the official SEAT brief. Scholarships are merit‑based.</div>
-          </div>
+          <div className="mt-4 rounded-xl bg-black/30 border border-white/10 p-3 text-xs text-white/70">Final details and eligibility will be shared in the official SEAT brief.</div>
         </div>
       </div>
     </section>
