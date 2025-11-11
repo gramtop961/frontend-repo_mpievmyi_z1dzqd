@@ -31,15 +31,10 @@ export default function TracksRedesign() {
 
   return (
     <section className="relative py-14 sm:py-16 lg:py-20">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-cyan-50/80 via-sky-50/40 to-transparent" />
-      </div>
+      {/* Remove extra blue spray: section already has it globally */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section 3 only: Flow with blue spray header */}
+        {/* Section 3 only: Flow header (no duplicate spray) */}
         <div className="mt-2 relative">
-          {/* Blue spray at top of section 3 (matches section 2 style) */}
-          <div className="pointer-events-none absolute inset-x-0 -top-6 h-24 bg-gradient-to-b from-cyan-50 via-sky-50/70 to-transparent -z-10" />
-
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-gray-700 shadow-sm mb-3">
               <Target className="h-3.5 w-3.5 text-cyan-600" /> Track flow — from choice to outcome

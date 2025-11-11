@@ -2,7 +2,6 @@ import React from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Mentors from './components/Mentors'
-import Tracks from './components/Tracks'
 import TracksRedesign from './components/TracksRedesign'
 import Outcomes from './components/Outcomes'
 import TalentClubCard from './components/TalentClubCard'
@@ -17,7 +16,7 @@ export default function App() {
       <Nav />
       <Hero />
       <Mentors />
-      <Tracks />
+      {/* Removed legacy Tracks section */}
       <TracksRedesign />
       <Outcomes />
       <TalentClubCard />
