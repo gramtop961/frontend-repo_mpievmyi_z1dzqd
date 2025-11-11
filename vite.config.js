@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Allow any preview host from the sandbox environment
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
     host: true,
-    allowedHosts: [
-      'ta-01k9rm8cb78heg0343fcnqhzxv-3000.wo-zok5aqqjsmublsr8ivc09mr0c.w.modal.host'
-    ]
+    // Accept all hosts to avoid blocking in ephemeral preview URLs
+    allowedHosts: true,
   }
 })
