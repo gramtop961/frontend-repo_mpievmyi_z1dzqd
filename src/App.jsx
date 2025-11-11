@@ -36,7 +36,7 @@ function Hero() {
 
       <div className="relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="min-h-[560px] sm:minh-[640px] lg:min-h-[720px] grid lg:grid-cols-2 items-center gap-10 py-16 lg:py-24">
+          <div className="min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] grid lg:grid-cols-2 items-center gap-10 py-16 lg:py-24">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -521,13 +521,13 @@ function Experience() {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500">1.5 years of experience</span>
             </span>
           </h2>
-          <p className="mt-3 text-lg text-gray-700">A structured journey that stacks real internships and a full-time residency so you don’t start from zero.</p>
+          <p className="mt-3 text-lg text-gray-700">Three real stints. One degree. You graduate with a resume that reads like experience, not potential.</p>
         </div>
 
-        <div className="mt-10 grid lg:grid-cols-2 gap-6">
-          {/* Left: timeline and highlights */}
+        <div className="mt-10 grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
+          {/* Left: impact + timeline */}
           <div className="space-y-6">
-            {/* Highlight strip */}
+            {/* Impact strip */}
             <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-6 shadow-md">
               <div className="absolute inset-x-0 -top-10 h-24 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-orange-500 opacity-10" />
               <div className="flex flex-wrap items-center gap-3">
@@ -541,44 +541,60 @@ function Experience() {
                   <GraduationCap className="h-3.5 w-3.5" /> Mapped to curriculum
                 </div>
               </div>
-              <p className="mt-3 text-sm text-gray-600">We line up opportunities and coach you through interviews, reviews, and real delivery.</p>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                <div className="rounded-xl border border-black/10 bg-gray-50 p-3">
+                  <div className="text-xs text-gray-600">After Year 1</div>
+                  <div className="mt-1 font-semibold text-gray-900">3‑month internship</div>
+                </div>
+                <div className="rounded-xl border border-black/10 bg-gray-50 p-3">
+                  <div className="text-xs text-gray-600">After Year 2</div>
+                  <div className="mt-1 font-semibold text-gray-900">3‑month internship</div>
+                </div>
+                <div className="rounded-xl border border-black/10 bg-gray-50 p-3">
+                  <div className="text-xs text-gray-600">Final Year</div>
+                  <div className="mt-1 font-semibold text-gray-900">9–12 months residency</div>
+                </div>
+              </div>
             </div>
 
-            {/* Timeline */}
+            {/* Timeline cards with numbered markers */}
             <div className="grid gap-4">
-              {/* Year 1 */}
+              {/* Step 1 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                 <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500" />
+                <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-violet-600">01</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-violet-600" /> After Year 1</div>
                   <div className="mt-1 text-lg font-bold">3‑month internship</div>
-                  <p className="mt-1 text-sm text-gray-700">Your first on‑site or remote break into industry. Ship features with a mentor on your side.</p>
+                  <p className="mt-1 text-sm text-gray-700">Break into industry with support: ship features, get code reviews, demo impact.</p>
                   <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-violet-50 text-violet-700 text-xs px-3 py-1 border border-violet-100">
                     <Briefcase className="h-3.5 w-3.5" /> Product / Backend / Frontend
                   </div>
                 </div>
               </motion.div>
 
-              {/* Year 2 */}
+              {/* Step 2 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.05 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                 <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-fuchsia-500 to-orange-500" />
+                <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-fuchsia-600">02</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-fuchsia-600" /> After Year 2</div>
                   <div className="mt-1 text-lg font-bold">Another 3‑month internship</div>
-                  <p className="mt-1 text-sm text-gray-700">Level up responsibility: own modules, write design docs, and present demos to stakeholders.</p>
+                  <p className="mt-1 text-sm text-gray-700">Own a module, write a short design doc, present to stakeholders, and earn strong letters.</p>
                   <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-fuchsia-50 text-fuchsia-700 text-xs px-3 py-1 border border-fuchsia-100">
-                    <ShieldCheck className="h-3.5 w-3.5" /> Strong letters & portfolio
+                    <ShieldCheck className="h-3.5 w-3.5" /> Portfolio growth
                   </div>
                 </div>
               </motion.div>
 
-              {/* Final Year */}
+              {/* Step 3 */}
               <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: 0.1 }} className="relative overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                 <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-orange-500 to-rose-500" />
+                <div className="absolute -left-3 -top-3 h-10 w-10 rounded-full bg-white border border-black/10 shadow flex items-center justify-center text-xs font-bold text-orange-600">03</div>
                 <div className="pl-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-gray-900"><CalendarDays className="h-4 w-4 text-orange-600" /> Final Year</div>
                   <div className="mt-1 text-lg font-bold">Full‑time industry work experience (9–12 months)</div>
-                  <p className="mt-1 text-sm text-gray-700">Join a partner team as an embedded engineer. Real sprints, real on‑call, real impact.</p>
+                  <p className="mt-1 text-sm text-gray-700">Embed with a partner team. Real sprints, real on‑call, real impact — before you graduate.</p>
                   <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 text-xs px-3 py-1 border border-amber-100">
                     <Building2 className="h-3.5 w-3.5" /> Residency with stipend
                   </div>
@@ -587,9 +603,10 @@ function Experience() {
             </div>
           </div>
 
-          {/* Right: mock offer / dashboard card */}
+          {/* Right: offer + tracker mockups */}
           <div>
             <div className="relative h-full">
+              {/* Offer letter */}
               <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-black/10 bg-gray-900 text-white p-6 sm:p-8 shadow-2xl">
                 <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 20%, #7c3aed 0, transparent 40%), radial-gradient(circle at 80% 0%, #db2777 0, transparent 40%), radial-gradient(circle at 80% 80%, #f59e0b 0, transparent 40%)' }} />
                 <div className="relative">
@@ -629,6 +646,7 @@ function Experience() {
                 </div>
               </motion.div>
 
+              {/* Residency tracker card */}
               <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, delay: 0.1 }} className="absolute -bottom-6 -right-4 w-48 sm:w-56 rotate-6 overflow-hidden rounded-2xl border border-black/10 bg-white p-4 shadow-xl">
                 <div className="text-xs text-gray-600">Residency Tracker</div>
                 <div className="mt-2">
