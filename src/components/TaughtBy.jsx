@@ -27,17 +27,14 @@ export default function TaughtBy() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
-            Taught by <span className="relative inline-flex items-center">
-              <span className="text-gray-500/80 line-through decoration-rose-500 decoration-4">Traditional</span>
-              <span className="mx-2">→</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">real software engineers</span>
-            </span>
+            <span className="block">Every other B.Tech. is taught by professors.</span>
+            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">ASCA’s B.Tech. is powered by Google, Apple, and Microsoft engineers.</span>
           </h2>
 
           <div className="mt-4 space-y-3 text-lg text-gray-800">
-            <p>At ASCA, you don’t learn from slides — you learn from engineers at Google, Apple, Microsoft, and top HFT firms who write production code every day.</p>
-            <p>They don’t talk about how systems work — they show you how they build them.</p>
-            <p>Because here, education isn’t theory — it’s practice.</p>
+            <p>We don’t compromise on teaching — we invest heavily to bring in practicing software engineers from the world’s top tech companies.</p>
+            <p>They don’t teach from slides — they teach from systems they’ve built and code they ship every day.</p>
+            <p>Because just like medical students learn from practicing doctors, future engineers deserve to learn from practicing engineers.</p>
           </div>
         </div>
 
