@@ -27,14 +27,13 @@ export default function TaughtBy() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
-            <span className="block">Every other B.Tech. is taught by professors.</span>
-            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">ASCA’s B.Tech. is powered by Google, Apple, and Microsoft engineers.</span>
+            <span className="block">Rest of world is taught by Traditional Professors</span>
+            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">ASCA B.Tech. brings Software Engineers from like of Google</span>
           </h2>
 
           <div className="mt-4 space-y-3 text-lg text-gray-800">
             <p>We don’t compromise on teaching — we invest heavily to bring in practicing software engineers from the world’s top tech companies.</p>
             <p>They don’t teach from slides — they teach from systems they’ve built and code they ship every day.</p>
-            <p>Because just like medical students learn from practicing doctors, future engineers deserve to learn from practicing engineers.</p>
           </div>
         </div>
 
@@ -57,6 +56,16 @@ export default function TaughtBy() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10 max-w-4xl">
+          <blockquote className="border-l-4 border-emerald-500 pl-4 text-lg italic text-gray-800">
+            “Medical students learn from Doctors who practice every day.. Why not same for Engineers?”
+          </blockquote>
+          <div className="mt-6 space-y-2">
+            <p className="text-2xl font-extrabold text-gray-900">Ask MORE from your B.Tech.</p>
+            <p className="text-lg font-semibold text-gray-900">B.Tech. at ASCA allows you to learn from Software Engineers at top companies like Google, Microsoft, Apple who code there! Does any other B.Tech. does that!?</p>
+          </div>
         </div>
       </div>
     </section>

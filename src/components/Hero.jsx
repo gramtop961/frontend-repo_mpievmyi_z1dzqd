@@ -17,7 +17,7 @@ export default function Hero() {
                 <Crown className="h-3.5 w-3.5 text-violet-600" /> Built by FAANG engineers • Apple-grade experience
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
-                ASCA — The Advanced School of Computer & AI
+                ASCA — AlgoUniversity School of CS & AI
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.12 }} className="mt-5 text-lg sm:text-xl text-gray-800 leading-relaxed">
                 Replace lectures with real-world creation. Learn from engineers who ship at Google, Meta, and top AI labs. Build a portfolio that gets you hired globally.
