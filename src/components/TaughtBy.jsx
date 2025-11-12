@@ -27,8 +27,8 @@ export default function TaughtBy() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
-            <span className="block">Rest of world is taught by Traditional Professors</span>
-            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">ASCA B.Tech. brings Software Engineers from like of Google</span>
+            <span className="block">Meet your faculty <span className="line-through decoration-red-500/60">Traditional Professors</span></span>
+            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-500">Top Software Engineers from Google, Apple,..</span>
           </h2>
 
           <div className="mt-4 space-y-3 text-lg text-gray-800">
