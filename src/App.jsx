@@ -10,6 +10,7 @@ import TaughtBy from './components/TaughtBy'
 import Seat from './components/Seat'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
+import TrustBoard from './components/TrustBoard'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <TracksRedesign />
       <Outcomes />
       <TalentClubCard />
+      <TrustBoard />
       <Seat />
       <FinalCTA />
       <Footer />
