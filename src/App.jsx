@@ -6,6 +6,7 @@ import TracksRedesign from './components/TracksRedesign'
 import Outcomes from './components/Outcomes'
 import TalentClubCard from './components/TalentClubCard'
 import Experience from './components/Experience'
+import TaughtBy from './components/TaughtBy'
 import Seat from './components/Seat'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
@@ -15,8 +16,10 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <Nav />
       <Hero />
-      {/* Move Experience directly below the cover section */}
+      {/* Section 2 */}
       <Experience />
+      {/* New section inserted right after Section 2 */}
+      <TaughtBy />
       <Mentors />
       {/* Removed legacy Tracks section */}
       <TracksRedesign />
