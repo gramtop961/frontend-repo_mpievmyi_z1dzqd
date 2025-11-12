@@ -6,17 +6,17 @@ export default function TrustBoard() {
     {
       name: 'Tim Brady',
       role: 'Chief Product Officer at Yahoo!',
-      img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1200&auto=format&fit=crop',
+      img: 'https://www.ycombinator.com/blog/content/images/2022/04/2018-0313-YC-Event_104-1.jpg',
     },
     {
       name: 'Dr. Mukesh Kumar Verma',
       role: 'Vice Chancellor, CSVTU',
-      img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnVTXe6WZEPB9N42Em6RxISj37pH0Q0MNV3g&s',
     },
     {
       name: 'Michael Seibel',
       role: 'CEO of Twitch',
-      img: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop',
+      img: 'https://i.insider.com/5f623ff557b7da001ee11feb?width=700',
     },
     {
       name: 'Prafulla Kumar',
